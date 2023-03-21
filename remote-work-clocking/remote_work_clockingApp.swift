@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct remote_work_clockingApp: App {
+        
     var body: some Scene {
         WindowGroup {
             ContentView()
