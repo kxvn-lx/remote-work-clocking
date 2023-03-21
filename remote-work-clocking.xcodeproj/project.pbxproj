@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0A0BD0EC29C979C800DD0E60 /* DBEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0BD0EB29C979C800DD0E60 /* DBEngine.swift */; };
-		0A0BD0EF29C97FB300DD0E60 /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0BD0EE29C97FB300DD0E60 /* MainButton.swift */; };
+		0A0BD0F529C9A54700DD0E60 /* ReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0BD0F429C9A54700DD0E60 /* ReaderView.swift */; };
+		0A0BD0F829C9A5F000DD0E60 /* TimerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0BD0F729C9A5F000DD0E60 /* TimerData.swift */; };
 		0A76E36B29C96658000F1FB4 /* remote_work_clockingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A76E36A29C96658000F1FB4 /* remote_work_clockingApp.swift */; };
 		0A76E36D29C96658000F1FB4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A76E36C29C96658000F1FB4 /* ContentView.swift */; };
 		0A76E36F29C9665B000F1FB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A76E36E29C9665B000F1FB4 /* Assets.xcassets */; };
@@ -18,7 +19,8 @@
 
 /* Begin PBXFileReference section */
 		0A0BD0EB29C979C800DD0E60 /* DBEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBEngine.swift; sourceTree = "<group>"; };
-		0A0BD0EE29C97FB300DD0E60 /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
+		0A0BD0F429C9A54700DD0E60 /* ReaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderView.swift; sourceTree = "<group>"; };
+		0A0BD0F729C9A5F000DD0E60 /* TimerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerData.swift; sourceTree = "<group>"; };
 		0A76E36729C96658000F1FB4 /* remote-work-clocking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "remote-work-clocking.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A76E36A29C96658000F1FB4 /* remote_work_clockingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = remote_work_clockingApp.swift; sourceTree = "<group>"; };
 		0A76E36C29C96658000F1FB4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -42,9 +44,16 @@
 		0A0BD0ED29C97FA100DD0E60 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				0A0BD0EE29C97FB300DD0E60 /* MainButton.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		0A0BD0F629C9A5CC00DD0E60 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0A0BD0F729C9A5F000DD0E60 /* TimerData.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		0A76E35E29C96658000F1FB4 = {
@@ -70,6 +79,7 @@
 				0A76E37A29C96BB0000F1FB4 /* VM */,
 				0A76E37929C968D6000F1FB4 /* Backend */,
 				0A76E36A29C96658000F1FB4 /* remote_work_clockingApp.swift */,
+				0A0BD0F429C9A54700DD0E60 /* ReaderView.swift */,
 				0A76E36C29C96658000F1FB4 /* ContentView.swift */,
 				0A76E36E29C9665B000F1FB4 /* Assets.xcassets */,
 				0A76E37029C9665B000F1FB4 /* remote_work_clocking.entitlements */,
@@ -89,6 +99,7 @@
 		0A76E37929C968D6000F1FB4 /* Backend */ = {
 			isa = PBXGroup;
 			children = (
+				0A0BD0F629C9A5CC00DD0E60 /* Model */,
 				0A0BD0EB29C979C800DD0E60 /* DBEngine.swift */,
 			);
 			path = Backend;
@@ -173,10 +184,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A76E36D29C96658000F1FB4 /* ContentView.swift in Sources */,
+				0A0BD0F829C9A5F000DD0E60 /* TimerData.swift in Sources */,
+				0A0BD0F529C9A54700DD0E60 /* ReaderView.swift in Sources */,
 				0A0BD0EC29C979C800DD0E60 /* DBEngine.swift in Sources */,
 				0A76E36B29C96658000F1FB4 /* remote_work_clockingApp.swift in Sources */,
 				0A76E37C29C96BC6000F1FB4 /* ContentViewModel.swift in Sources */,
-				0A0BD0EF29C97FB300DD0E60 /* MainButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

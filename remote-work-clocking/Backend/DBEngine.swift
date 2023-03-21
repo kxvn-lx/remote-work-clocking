@@ -9,15 +9,9 @@ import Foundation
 
 struct DBEngine {
     static var shared = DBEngine()
+    private var timerData: [TimerData] = []
     
     private init() {}
-    
-    struct TimerData: Codable {
-        let date: Date
-        let duration: TimeInterval
-    }
-    
-    private var timerData: [TimerData] = []
     
     // MARK: - Private Functions
     

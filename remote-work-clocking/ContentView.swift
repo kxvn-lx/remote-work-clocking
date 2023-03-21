@@ -16,19 +16,22 @@ struct ContentView: View {
                 .font(.largeTitle)
             
             VStack {
-                MainButton(title: vm.timerIsRunning ? "Pause" : "Clock In", longPressAction: {
-                    vm.stopTimer()
-                }, tapAction: {
+                Button {
                     vm.timerIsRunning.toggle()
-                })
-                .frame(width: 150)
-                
-                Text(vm.timerIsRunning ? "Hold down to stop." : "")
-                    .font(.caption)
+                } label: {
+                    Text(vm.timerIsRunning ? "Pause" : "Clock In")
+                }
+
+                if vm.timerIsRunning || vm.elapsedTime != 0 {
+                    Button {
+                        vm.stopTimer()
+                    } label: {
+                        Text("Stop")
+                    }
+
+                }
             }
         }
-        .padding()
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 
