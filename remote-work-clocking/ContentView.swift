@@ -11,26 +11,31 @@ struct ContentView: View {
     @ObservedObject private var vm = ContentViewModel()
     
     var body: some View {
-        VStack(spacing: 25) {
-            Text(vm.timeString(vm.elapsedTime))
-                .font(.largeTitle)
-            
-            VStack {
-                Button {
-                    vm.timerIsRunning.toggle()
-                } label: {
-                    Text(vm.timerIsRunning ? "Pause" : "Clock In")
-                }
-
-                if vm.timerIsRunning || vm.elapsedTime != 0 {
+        VStack {
+            VStack(spacing: 25) {
+                Text(vm.timeString(vm.elapsedTime))
+                    .font(.largeTitle)
+                
+                VStack {
                     Button {
-                        vm.stopTimer()
+                        vm.timerIsRunning.toggle()
                     } label: {
-                        Text("Stop")
+                        Text(vm.timerIsRunning ? "Pause" : "Clock In")
                     }
-
+                    
+                    if vm.timerIsRunning || vm.elapsedTime != 0 {
+                        Button {
+                            vm.stopTimer()
+                        } label: {
+                            Text("Stop")
+                        }
+                        
+                    }
                 }
             }
+            .padding()
+            
+            ReaderView()
         }
     }
 }
