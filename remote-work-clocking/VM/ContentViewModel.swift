@@ -30,7 +30,7 @@ class ContentViewModel: ObservableObject {
     
     func stopTimer() {
         timerIsRunning = false
-//        DBEngine.shared.addTimerData(date: Date(), duration: elapsedTime)
+        DBEngine.shared.addTimerData(date: Date(), duration: elapsedTime)
         
         elapsedTime = 0
     }

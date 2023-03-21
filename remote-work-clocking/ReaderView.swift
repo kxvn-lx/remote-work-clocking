@@ -10,9 +10,13 @@ import SwiftUI
 struct ReaderView: View {
 
     var body: some View {
-        List(TimerData.static_datas, id: \.self) { timerData in
-            Text("\(timerData.duration / 3600) hours") // Convert the interval to hours and display as text
-            Text("\(timerData.date)")
+        List(DBEngine.shared.getTimerData(), id: \.self) { timerData in
+            Text("\(timerData.getHumanDescription()) mins") // Convert the interval to hours and display as text
+            HStack {
+                Text(timerData.getDateComponents().day)
+                Text(timerData.getDateComponents().date)
+                Text(timerData.getDateComponents().time)
+            }
             Divider()
         }
     }

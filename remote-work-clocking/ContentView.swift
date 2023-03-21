@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject private var vm = ContentViewModel()
+    @State private var showDialog = false
     
     var body: some View {
         VStack {
@@ -25,11 +26,16 @@ struct ContentView: View {
                     
                     if vm.timerIsRunning || vm.elapsedTime != 0 {
                         Button {
-                            vm.stopTimer()
+                            showDialog.toggle()
                         } label: {
                             Text("Stop")
                         }
-                        
+                        .confirmationDialog("Are you sure?",
+                                            isPresented: $showDialog) {
+                            Button("Stop the timer.", role: .destructive) {
+                                vm.stopTimer()
+                            }
+                        }
                     }
                 }
             }
