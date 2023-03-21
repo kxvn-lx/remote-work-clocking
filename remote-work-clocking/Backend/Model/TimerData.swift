@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct TimerData: Codable, Hashable {
+struct TimerData: Codable, Hashable, Identifiable, Equatable {
+    var id = UUID()
     let date: Date
     let duration: TimeInterval
     

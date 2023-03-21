@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject private var vm = ContentViewModel()
+    @StateObject var vm = ContentViewModel()
     @State private var showDialog = false
     
     var body: some View {
         VStack {
             VStack(spacing: 25) {
-                Text(vm.timeString(vm.elapsedTime))
+                Text(vm.getElapsedTimeDescription())
                     .font(.largeTitle)
                 
                 VStack {
@@ -26,15 +26,18 @@ struct ContentView: View {
                     
                     if vm.timerIsRunning || vm.elapsedTime != 0 {
                         Button {
+                            vm.timerIsRunning = false
                             showDialog.toggle()
                         } label: {
                             Text("Stop")
                         }
-                        .confirmationDialog("Are you sure?",
-                                            isPresented: $showDialog) {
+                        .confirmationDialog("Are you sure?", isPresented: $showDialog) {
                             Button("Stop the timer.", role: .destructive) {
                                 vm.stopTimer()
                             }
+                            Button("Cancel", role: .cancel, action: {
+                                vm.timerIsRunning = true
+                            })
                         }
                     }
                 }
@@ -42,6 +45,7 @@ struct ContentView: View {
             .padding()
             
             ReaderView()
+                .environmentObject(vm)
         }
     }
 }

@@ -8,16 +8,30 @@
 import SwiftUI
 
 struct ReaderView: View {
-
+    @State private var selectedItems: Set<TimerData> = []
+    @EnvironmentObject var vm: ContentViewModel
+    
+    
     var body: some View {
-        List(DBEngine.shared.getTimerData(), id: \.self) { timerData in
-            Text("\(timerData.getHumanDescription()) mins") // Convert the interval to hours and display as text
-            HStack {
-                Text(timerData.getDateComponents().day)
-                Text(timerData.getDateComponents().date)
-                Text(timerData.getDateComponents().time)
+        List(vm.timerDatas, id: \.self, selection: $selectedItems) { timerData in
+            VStack(alignment: .leading) {
+                Text("\(timerData.getHumanDescription()) mins") // Convert the interval to hours and display as text
+                HStack {
+                    Text(timerData.getDateComponents().day)
+                    Text(timerData.getDateComponents().date)
+                    Text(timerData.getDateComponents().time)
+                }
+                Divider()
             }
-            Divider()
+        }
+        .contextMenu {
+            Button(action: {
+                guard let item = selectedItems.first else { return }
+                vm.delete(item)
+            }) {
+                Text("Delete")
+                Image(systemName: "trash")
+            }
         }
     }
 }
