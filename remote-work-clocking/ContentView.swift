@@ -9,17 +9,17 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var vm = ContentViewModel()
-    @State private var selectedId: String?
+    @State private var selectedId: String? = "timerView"
     
     var body: some View {
         NavigationView {
             List {
                 Section("Services") {
                     NavigationLink(destination: TimerView().environmentObject(vm), tag: "timerView", selection: $selectedId) {
-                        Text("Timer")
+                        Label("Timer", systemImage: "timer")
                     }
                     NavigationLink(destination: ReaderView().environmentObject(vm), tag: "readerView", selection: $selectedId) {
-                        Text("Database")
+                        Label("Database", systemImage: vm.timerDatas.count == 0 ? "tray" : "tray.full")
                     }
                 }
             }

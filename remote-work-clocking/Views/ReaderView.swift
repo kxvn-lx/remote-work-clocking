@@ -11,7 +11,6 @@ struct ReaderView: View {
     @State private var selectedItems: Set<TimerData> = []
     @EnvironmentObject private var vm: ContentViewModel
     
-    
     var body: some View {
         List(vm.timerDatas, id: \.self, selection: $selectedItems) { timerData in
             VStack(alignment: .leading) {
@@ -21,9 +20,9 @@ struct ReaderView: View {
                     Text(timerData.getDateComponents().date)
                     Text(timerData.getDateComponents().time)
                 }
-                Divider()
             }
         }
+        .listStyle(.inset(alternatesRowBackgrounds: true))
         .contextMenu {
             Button(action: {
                 guard selectedItems.count > 0 else { return }

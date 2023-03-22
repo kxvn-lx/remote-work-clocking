@@ -46,6 +46,7 @@
 		0A0BD0ED29C97FA100DD0E60 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0A0BD0F429C9A54700DD0E60 /* ReaderView.swift */,
 				0AEE331129CAE9A2003C3C9F /* TimerView.swift */,
 			);
 			path = Views;
@@ -82,7 +83,6 @@
 				0A76E37A29C96BB0000F1FB4 /* VM */,
 				0A76E37929C968D6000F1FB4 /* Backend */,
 				0A76E36A29C96658000F1FB4 /* remote_work_clockingApp.swift */,
-				0A0BD0F429C9A54700DD0E60 /* ReaderView.swift */,
 				0A76E36C29C96658000F1FB4 /* ContentView.swift */,
 				0A76E36E29C9665B000F1FB4 /* Assets.xcassets */,
 				0A76E37029C9665B000F1FB4 /* remote_work_clocking.entitlements */,
