@@ -24,7 +24,21 @@ struct ContentView: View {
                 }
             }
             .listStyle(.sidebar)
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    Button(action: { toggleSidebar() }) {
+                        Image(systemName: "sidebar.left")
+                    }
+                }
+            }
         }
+    }
+    
+    private func toggleSidebar() {
+        #if os(iOS)
+        #else
+        NSApp.keyWindow?.firstResponder?.tryToPerform(#selector(NSSplitViewController.toggleSidebar(_:)), with: nil)
+        #endif
     }
 }
 
