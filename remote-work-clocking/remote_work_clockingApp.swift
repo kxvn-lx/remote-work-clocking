@@ -9,11 +9,12 @@ import SwiftUI
 
 @main
 struct remote_work_clockingApp: App {
-        
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .frame(maxWidth: 400, maxHeight: .infinity)
         }
+        .windowStyle(.hiddenTitleBar)
     }
 }

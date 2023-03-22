@@ -38,7 +38,7 @@ class ContentViewModel: ObservableObject {
             self.timerDatas = timerDatas
         }
 
-        elapsedTime = 0
+        resetTimer()
     }
     
     func delete(_ datas: [TimerData] ) {
@@ -47,6 +47,9 @@ class ContentViewModel: ObservableObject {
         }
     }
     
+    func resetTimer() {
+        elapsedTime = 0
+    }
     
     // MARK: -- PRIVATE METHODS
 }

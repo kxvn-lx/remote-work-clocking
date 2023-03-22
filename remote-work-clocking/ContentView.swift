@@ -9,43 +9,21 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var vm = ContentViewModel()
-    @State private var showDialog = false
+    @State private var selectedId: String?
     
     var body: some View {
-        VStack {
-            VStack(spacing: 25) {
-                Text(vm.getElapsedTimeDescription())
-                    .font(.largeTitle)
-                
-                VStack {
-                    Button {
-                        vm.timerIsRunning.toggle()
-                    } label: {
-                        Text(vm.timerIsRunning ? "Pause" : "Clock In")
+        NavigationView {
+            List {
+                Section("Services") {
+                    NavigationLink(destination: TimerView().environmentObject(vm), tag: "timerView", selection: $selectedId) {
+                        Text("Timer")
                     }
-                    
-                    if vm.timerIsRunning || vm.elapsedTime != 0 {
-                        Button {
-                            vm.timerIsRunning = false
-                            showDialog.toggle()
-                        } label: {
-                            Text("Stop")
-                        }
-                        .confirmationDialog("Are you sure?", isPresented: $showDialog) {
-                            Button("Stop the timer.", role: .destructive) {
-                                vm.stopTimer()
-                            }
-                            Button("Cancel", role: .cancel, action: {
-                                vm.timerIsRunning = true
-                            })
-                        }
+                    NavigationLink(destination: ReaderView().environmentObject(vm), tag: "readerView", selection: $selectedId) {
+                        Text("Database")
                     }
                 }
             }
-            .padding()
-            
-            ReaderView()
-                .environmentObject(vm)
+            .listStyle(.sidebar)
         }
     }
 }
