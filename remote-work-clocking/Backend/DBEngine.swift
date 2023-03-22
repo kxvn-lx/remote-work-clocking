@@ -29,8 +29,10 @@ struct DBEngine {
         newDatas?(timerDatas)
     }
     
-    mutating func delete(_ timerData: TimerData, results newTimerData: (([TimerData]) -> Void)?) {
-        timerDatas.removeAll(where: { $0 == timerData })
+    mutating func delete(_ toRemoved: [TimerData], results newTimerData: (([TimerData]) -> Void)?) {
+        toRemoved.forEach({ td in
+            timerDatas.removeAll(where: { $0 == td })
+        })
         
         saveToDB()
         timerDatas = timerDatas.sorted(by: { $0.date > $1.date })

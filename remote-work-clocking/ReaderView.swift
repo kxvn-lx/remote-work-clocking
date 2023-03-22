@@ -26,8 +26,8 @@ struct ReaderView: View {
         }
         .contextMenu {
             Button(action: {
-                guard let item = selectedItems.first else { return }
-                vm.delete(item)
+                guard selectedItems.count > 0 else { return }
+                vm.delete(Array(selectedItems))
                 selectedItems = []
             }) {
                 Text("Delete")

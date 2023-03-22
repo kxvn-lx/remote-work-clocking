@@ -41,8 +41,8 @@ class ContentViewModel: ObservableObject {
         elapsedTime = 0
     }
     
-    func delete(_ data: TimerData ) {
-        DBEngine.shared.delete(data) { timerDatas in
+    func delete(_ datas: [TimerData] ) {
+        DBEngine.shared.delete(datas) { timerDatas in
             self.timerDatas = timerDatas
         }
     }
