@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ReaderView: View {
     @State private var selectedItems: Set<TimerData> = []
-    @EnvironmentObject var vm: ContentViewModel
+    @EnvironmentObject private var vm: ContentViewModel
     
     
     var body: some View {
@@ -28,6 +28,7 @@ struct ReaderView: View {
             Button(action: {
                 guard let item = selectedItems.first else { return }
                 vm.delete(item)
+                selectedItems = []
             }) {
                 Text("Delete")
                 Image(systemName: "trash")

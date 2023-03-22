@@ -12,6 +12,7 @@ struct TimerData: Codable, Hashable, Identifiable, Equatable {
     let date: Date
     let duration: TimeInterval
     
+    
     func getHumanDescription() -> String {
         let doubleStr = String(format: "%.2f", duration / 60)
         return doubleStr
@@ -30,6 +31,7 @@ struct TimerData: Codable, Hashable, Identifiable, Equatable {
         
         return (day, time, dateString)
     }
+    
     
     static let static_datas: [TimerData] = [
         .init(date: Date(), duration: 23),

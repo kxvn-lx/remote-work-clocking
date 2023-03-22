@@ -12,7 +12,7 @@ struct DBEngine {
     static var shared = DBEngine()
     private var timerDatas: [TimerData] = []
     
-    private init() {fetchFromDB(newTimerDatas: nil)}
+    private init() { fetchFromDB(newTimerDatas: nil) }
     
     // MARK: Public Functions
     
