@@ -17,7 +17,7 @@ struct TimerView: View {
                 .font(.largeTitle)
             
             VStack {
-                Button {
+                Button { // Clock In || Pause Button
                     vm.timerIsRunning.toggle()
                 } label: {
                     Text(vm.timerIsRunning ? "Pause" : "Clock In")
@@ -35,7 +35,7 @@ struct TimerView: View {
                             vm.stopTimer()
                         }
                         Button("Cancel", role: .cancel, action: {
-                            vm.resetTimer()
+                            vm.elapsedTime = 0
                         })
                     }
                 }

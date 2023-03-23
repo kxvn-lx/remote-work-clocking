@@ -12,6 +12,20 @@ struct ReaderView: View {
     @EnvironmentObject private var vm: ContentViewModel
     
     var body: some View {
+        if vm.timerDatas.count > 0 {
+            listView
+        } else {
+            emptyView
+        }
+    }
+}
+
+extension ReaderView {
+    var emptyView: some View {
+        Text("No data.")
+    }
+    
+    var listView: some View {
         List(vm.timerDatas, id: \.self, selection: $selectedItems) { timerData in
             VStack(alignment: .leading) {
                 Text("\(timerData.getHumanDescription()) mins") // Convert the interval to hours and display as text

@@ -9,11 +9,18 @@ import Foundation
 import Combine
 
 class ContentViewModel: ObservableObject {
-    @Published var timerIsRunning = false
-    @Published private(set) var elapsedTime: TimeInterval = 0
+    @Published var timerIsRunning = false {
+        didSet {
+            if timerIsRunning && startDate == nil {
+                startDate = Date()
+            }
+        }
+    }
+    @Published var elapsedTime: TimeInterval = 0
     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @Published var timerDatas = [TimerData]()
     private var cancellables = Set<AnyCancellable>()
+    private var startDate: Date? // Placeholder date
     
     init() {
         timer
@@ -34,21 +41,18 @@ class ContentViewModel: ObservableObject {
     
     func stopTimer() {
         timerIsRunning = false
-        DBEngine.shared.save(.init(date: Date(), duration: elapsedTime)) { timerDatas in
+        DBEngine.shared.save(.init(date: startDate ?? Date(), duration: elapsedTime)) { timerDatas in
             self.timerDatas = timerDatas
         }
-
-        resetTimer()
+        
+        startDate = nil // reset startDate
+        elapsedTime = 0
     }
     
     func delete(_ datas: [TimerData] ) {
         DBEngine.shared.delete(datas) { timerDatas in
             self.timerDatas = timerDatas
         }
-    }
-    
-    func resetTimer() {
-        elapsedTime = 0
     }
     
     // MARK: -- PRIVATE METHODS
