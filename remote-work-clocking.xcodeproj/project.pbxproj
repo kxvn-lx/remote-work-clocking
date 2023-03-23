@@ -15,6 +15,8 @@
 		0A76E36F29C9665B000F1FB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A76E36E29C9665B000F1FB4 /* Assets.xcassets */; };
 		0A76E37329C9665B000F1FB4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A76E37229C9665B000F1FB4 /* Preview Assets.xcassets */; };
 		0A76E37C29C96BC6000F1FB4 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A76E37B29C96BC6000F1FB4 /* ContentViewModel.swift */; };
+		0A9E6E1929CC74EF0086F2AB /* TagsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E6E1829CC74EF0086F2AB /* TagsView.swift */; };
+		0A9E6E1B29CC77C50086F2AB /* Timer+TagsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E6E1A29CC77C50086F2AB /* Timer+TagsView.swift */; };
 		0AEE331229CAE9A2003C3C9F /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE331129CAE9A2003C3C9F /* TimerView.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +31,8 @@
 		0A76E37029C9665B000F1FB4 /* remote_work_clocking.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = remote_work_clocking.entitlements; sourceTree = "<group>"; };
 		0A76E37229C9665B000F1FB4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0A76E37B29C96BC6000F1FB4 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		0A9E6E1829CC74EF0086F2AB /* TagsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsView.swift; sourceTree = "<group>"; };
+		0A9E6E1A29CC77C50086F2AB /* Timer+TagsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Timer+TagsView.swift"; sourceTree = "<group>"; };
 		0AEE331129CAE9A2003C3C9F /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -48,6 +52,8 @@
 			children = (
 				0A0BD0F429C9A54700DD0E60 /* ReaderView.swift */,
 				0AEE331129CAE9A2003C3C9F /* TimerView.swift */,
+				0A9E6E1829CC74EF0086F2AB /* TagsView.swift */,
+				0A9E6E1A29CC77C50086F2AB /* Timer+TagsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -186,9 +192,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A9E6E1B29CC77C50086F2AB /* Timer+TagsView.swift in Sources */,
 				0A76E36D29C96658000F1FB4 /* ContentView.swift in Sources */,
 				0A0BD0F829C9A5F000DD0E60 /* TimerData.swift in Sources */,
 				0A0BD0F529C9A54700DD0E60 /* ReaderView.swift in Sources */,
+				0A9E6E1929CC74EF0086F2AB /* TagsView.swift in Sources */,
 				0A0BD0EC29C979C800DD0E60 /* DBEngine.swift in Sources */,
 				0A76E36B29C96658000F1FB4 /* remote_work_clockingApp.swift in Sources */,
 				0AEE331229CAE9A2003C3C9F /* TimerView.swift in Sources */,
@@ -321,6 +329,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Shanti Remote Work";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -359,6 +369,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Shanti Remote Work";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;

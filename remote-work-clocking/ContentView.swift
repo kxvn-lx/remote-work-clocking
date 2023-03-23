@@ -15,7 +15,7 @@ struct ContentView: View {
         NavigationView {
             List {
                 Section("Services") {
-                    NavigationLink(destination: TimerView().environmentObject(vm), tag: "timerView", selection: $selectedId) {
+                    NavigationLink(destination: Timer_TagsView().environmentObject(vm), tag: "timerView", selection: $selectedId) {
                         Label("Timer", systemImage: "timer")
                     }
                     NavigationLink(destination: ReaderView().environmentObject(vm), tag: "readerView", selection: $selectedId) {

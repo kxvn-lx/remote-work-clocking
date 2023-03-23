@@ -7,10 +7,29 @@
 
 import Foundation
 
+struct Tag: Codable, Hashable, Equatable {
+    let title: String
+    let emoji: String
+    
+    static let default_tags: [Tag] = [
+        .init(title: "Esper", emoji: "🚀"),
+        .init(title: "Personal", emoji: "🌾"),
+        .init(title: "Work", emoji: "⚡️"),
+    ]
+}
+
 struct TimerData: Codable, Hashable, Identifiable, Equatable {
     var id = UUID()
     let date: Date
     let duration: TimeInterval
+    let tag: Tag?
+    
+    init(id: UUID = UUID(), date: Date, duration: TimeInterval, tag: Tag? = nil) {
+        self.id = id
+        self.date = date
+        self.duration = duration
+        self.tag = tag
+    }
     
     
     func getHumanDescription() -> String {
@@ -31,13 +50,5 @@ struct TimerData: Codable, Hashable, Identifiable, Equatable {
         
         return (day, time, dateString)
     }
-    
-    
-    static let static_datas: [TimerData] = [
-        .init(date: Date(), duration: 23),
-        .init(date: Date(), duration: 12.5),
-        .init(date: Date(), duration: 123),
-        .init(date: Date(), duration: 423),
-        .init(date: Date(), duration: 23)
-    ]
+
 }

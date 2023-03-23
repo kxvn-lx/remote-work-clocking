@@ -17,10 +17,12 @@ class ContentViewModel: ObservableObject {
         }
     }
     @Published var elapsedTime: TimeInterval = 0
-    private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @Published var timerDatas = [TimerData]()
+    @Published var selectedTag: Tag?
+    private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     private var cancellables = Set<AnyCancellable>()
     private var startDate: Date? // Placeholder date
+    
     
     init() {
         timer
@@ -30,6 +32,7 @@ class ContentViewModel: ObservableObject {
         
         timerDatas = DBEngine.shared.getDatas()
     }
+    
     
     // MARK: PUBLIC METHODS
     
@@ -41,12 +44,15 @@ class ContentViewModel: ObservableObject {
     
     func stopTimer() {
         timerIsRunning = false
-        DBEngine.shared.save(.init(date: startDate ?? Date(), duration: elapsedTime)) { timerDatas in
+        DBEngine
+            .shared
+            .save(.init(date: startDate ?? Date(), duration: elapsedTime, tag: selectedTag)) { timerDatas in
             self.timerDatas = timerDatas
         }
         
         startDate = nil // reset startDate
         elapsedTime = 0
+        selectedTag = nil
     }
     
     func delete(_ datas: [TimerData] ) {
@@ -54,6 +60,7 @@ class ContentViewModel: ObservableObject {
             self.timerDatas = timerDatas
         }
     }
+    
     
     // MARK: -- PRIVATE METHODS
 }
