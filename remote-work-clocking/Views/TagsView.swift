@@ -28,7 +28,8 @@ struct TagsView: View {
                         Spacer()
                         
                         if vm.selectedTag == tag {
-                            Image(systemName: "checkmark.circle")
+                            Image(systemName: "checkmark.circle.fill")
+                                .foregroundColor(Color.accentColor)
                         }
                     }
                     .onTapGesture {
